@@ -12,15 +12,16 @@ import javax.swing.JFrame;
 import com.jogamp.opengl.GLProfile;
 import com.jogamp.opengl.GLCapabilities;
 import com.jogamp.opengl.awt.GLJPanel;
+import oceanworld.OceanRenderer;
 
 public class OceanWorld {
 
   public static void main(String[] args) {
  GLProfile profile= GLProfile.get(GLProfile.GL2);
  GLCapabilities capabilities = new GLCapabilities(profile);
- GLJPanel panel= new GLJPanel(capabilities);
- OceanRenderer renderer = new OceanRenderer();
- panel.addGLEventListener(renderer);
+ GLJPanel panel = new GLJPanel(capabilities);
+OceanRenderer renderer = new OceanRenderer();
+panel.addGLEventListener(renderer);
  JFrame frame= new JFrame("Ocean World");
  frame.add(panel);
  frame.setSize(1400,900);
