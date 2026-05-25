@@ -129,13 +129,13 @@ class Roca {
     // Dibuja tres esferas superpuestas para forma orgánica
     public void dibujar(GL2 gl, GLUT glut) {
         gl.glPushMatrix();
-        gl.glTranslatef(x, y, z);
+        gl.glTranslatef(x, y -0.25f , z);
         gl.glRotatef(rotY, 0, 1, 0);
 
         // Masa principal aplastada
         gl.glColor3f(Utils.C_ROCA[0], Utils.C_ROCA[1], Utils.C_ROCA[2]);
         gl.glPushMatrix();
-        gl.glScalef(s * 1.45f, s * 0.62f, s * 1.12f);
+        gl.glScalef(s * 1.25f, s * 0.50f, s * 1.0f);
         glut.glutSolidSphere(1f, 10, 8);
         gl.glPopMatrix();
 
