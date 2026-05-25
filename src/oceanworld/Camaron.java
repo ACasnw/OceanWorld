@@ -157,7 +157,7 @@ public class Camaron {
         dibujarCuerpo(gl, glut, time);
         dibujarCabeza(gl, glut, time);
         dibujarAbdomen(gl, glut, time);
-        gl.glRotatef(-5f, 0, 0, 1);
+        gl.glRotatef(-4f, 0, 0, 1);
         dibujarPatas(gl, glut, time);
         dibujarCola(gl, glut);
         dibujarAntenas(gl, glut, time);
@@ -201,7 +201,7 @@ public class Camaron {
 
         gl.glTranslatef(0.36f, 0.14f, 0);
 
-        gl.glScalef(0.85f, 0.78f, 0.78f);
+        gl.glScalef(0.72f, 0.65f, 0.65f);
 
         glut.glutSolidSphere(0.36f, 14, 12);
 
@@ -219,9 +219,9 @@ public class Camaron {
 
             gl.glPushMatrix();
 
-            float dx = -0.28f - i * 0.18f;
+            float dx = -0.20f - i * 0.12f;
 
-            gl.glTranslatef(dx, -0.015f * i, 0);
+            gl.glTranslatef(dx, -0.008f * i, 0);
 
             float onda = 8f * (float) Math.sin(time * 3.5f + i * 0.7f);
 
@@ -268,7 +268,7 @@ public class Camaron {
 
         gl.glPushMatrix();
 
-        gl.glTranslatef(-1.72f, -0.40f, 0);
+        gl.glTranslatef(-0.95f, -0.12f, 0);
 
         for (int i = 0; i < 5; i++) {
 
@@ -303,7 +303,7 @@ public class Camaron {
 
             gl.glRotatef(anim, 0, 1, 0);
 
-            glut.glutSolidCylinder(0.010f, 0.75f, 4, 3);
+            glut.glutSolidCylinder(0.005f, 0.45f, 5, 4);
 
             gl.glPopMatrix();
         }
