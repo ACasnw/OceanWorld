@@ -24,7 +24,7 @@ public class Camaron {
     public float rotY, rotYObj;
 
     // Física
-    private static final float GRAVEDAD = 0.015f;
+    private static final float GRAVEDAD = 0.029f;
     private static final float VEL_MOV = 0.15f;
     private static final float VEL_SALTO = 0.40f;
     private static final float FRICCION = 0.86f;
@@ -172,7 +172,7 @@ public class Camaron {
 
         gl.glPushMatrix();
 
-        gl.glScalef(1.0f, 0.68f, 0.68f);
+        gl.glScalef(1.0f, 0.45f, 0.45f);
 
         glut.glutSolidSphere(0.42f, 14, 12);
 
@@ -201,12 +201,27 @@ public class Camaron {
 
         gl.glTranslatef(0.36f, 0.14f, 0);
 
-        gl.glScalef(0.72f, 0.65f, 0.65f);
+        gl.glScalef(0.60f, 0.45f, 0.45f);
 
-        glut.glutSolidSphere(0.36f, 14, 12);
+      glut.glutSolidSphere(0.36f, 14, 12);
+
+        // Ojos
+        gl.glColor3f(0f, 0f, 0f);
+
+        // Ojo izquierdo
+        gl.glPushMatrix();
+        gl.glTranslatef(0.30f, 0.10f, 0.14f);
+        glut.glutSolidSphere(0.035f, 8, 8);
+        gl.glPopMatrix();
+
+        // Ojo derecho
+        gl.glPushMatrix();
+        gl.glTranslatef(0.30f, 0.10f, -0.14f);
+        glut.glutSolidSphere(0.035f, 8, 8);
+        gl.glPopMatrix();
 
         gl.glPopMatrix();
-    }
+            }
 
     // Abdomen
     private void dibujarAbdomen(GL2 gl, GLUT glut, float time) {
@@ -219,7 +234,7 @@ public class Camaron {
 
             gl.glPushMatrix();
 
-            float dx = -0.20f - i * 0.12f;
+            float dx = -0.18f - i * 0.11f;
 
             gl.glTranslatef(dx, -0.008f * i, 0);
 
@@ -227,7 +242,7 @@ public class Camaron {
 
             gl.glRotatef(onda, 0, 0, 1);
 
-           gl.glScalef(1.0f, 0.9f, 0.9f);
+           gl.glScalef(0.90f, 0.48f, 0.48f);
 
             glut.glutSolidSphere(radios[i], 10, 8);
 
@@ -254,37 +269,35 @@ public class Camaron {
 
                 gl.glRotatef(anim, 1, 0, 0);
 
-                glut.glutSolidCylinder(0.012f, 0.30f, 4, 3);
+                glut.glutSolidCylinder(0.006f, 0.26f, 5, 4);
 
                 gl.glPopMatrix();
             }
         }
     }
 
-    // Cola
+   // Cola
     private void dibujarCola(GL2 gl, GLUT glut) {
 
-        gl.glColor3f(C_CAMARON[0], C_CAMARON[1], C_CAMARON[2]);
+    gl.glColor3f(C_CAMARON[0], C_CAMARON[1], C_CAMARON[2]);
+
+    gl.glPushMatrix();
+
+    for (int i = 0; i < 5; i++) {
 
         gl.glPushMatrix();
 
-        gl.glTranslatef(-0.95f, -0.12f, 0);
+        gl.glRotatef(-48f + i * 24f, 0, 0, 1);
 
-        for (int i = 0; i < 5; i++) {
+        gl.glScalef(0.10f, 0.55f, 0.06f);
 
-            gl.glPushMatrix();
-
-            gl.glRotatef(-48f + i * 24f, 0, 0, 1);
-
-            gl.glScalef(0.10f, 0.55f, 0.06f);
-
-            glut.glutSolidSphere(0.25f, 6, 4);
-
-            gl.glPopMatrix();
-        }
+        glut.glutSolidSphere(0.25f, 6, 4);
 
         gl.glPopMatrix();
     }
+
+    gl.glPopMatrix();
+}
 
     // Antenas
     private void dibujarAntenas(GL2 gl, GLUT glut, float time) {
@@ -303,7 +316,9 @@ public class Camaron {
 
             gl.glRotatef(anim, 0, 1, 0);
 
-            glut.glutSolidCylinder(0.005f, 0.45f, 5, 4);
+            gl.glRotatef(-55f, 0, 0, 1);
+
+        glut.glutSolidCylinder(0.003f, 0.75f, 6, 5);
 
             gl.glPopMatrix();
         }
